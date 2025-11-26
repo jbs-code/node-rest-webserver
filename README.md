@@ -14,3 +14,9 @@ pnpm install
 ```
 pnpm run dev;
 ```
+
+4. Start database, run:
+
+```
+docker compose up -d;
+```
