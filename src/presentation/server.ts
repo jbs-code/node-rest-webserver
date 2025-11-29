@@ -8,7 +8,8 @@ interface Options {
 }
 
 export class Server {
-  private app = express();
+  public readonly app = express();
+  private serverListener?: any;
   private readonly routes: Router;
   private readonly port: number;
   private readonly public_path: string;
@@ -38,8 +39,12 @@ export class Server {
       res.sendFile(indexPath);
     });
 
-    this.app.listen(`${this.port}`, () => {
+    this.serverListener = this.app.listen(`${this.port}`, () => {
       console.log(`Server on port ${this.port}`);
     });
+  }
+
+  public close(){
+    this.serverListener?.close();
   }
 }

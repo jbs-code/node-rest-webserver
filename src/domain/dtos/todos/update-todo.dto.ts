@@ -17,7 +17,7 @@ export class UpdateTodoDto {
     const { id, text, completedAt } = props;
     let newCompletedAt = completedAt;
 
-    if (!id || isNaN(+id)) return ["id must be a number"];
+    if (!id || isNaN(+id)) return ["id not found, id must be a number"];
 
     if (completedAt) {
       newCompletedAt = new Date(completedAt);
